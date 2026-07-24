@@ -122,7 +122,7 @@ Livro (1)
 
 ## Swagger
 
-Em breve
+![alt text](image.png)
 
 ---
 
