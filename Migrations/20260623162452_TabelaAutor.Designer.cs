@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using sistema_blibiotecario_api.Data;
+using sistema_bibliotecario_api.Data;
 
 #nullable disable
 
-namespace sistema_blibiotecario_api.Migrations
+namespace sistema_bibliotecario_api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20260623162452_TabelaAutor")]
@@ -21,7 +21,7 @@ namespace sistema_blibiotecario_api.Migrations
                 .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("sistema_blibiotecario_api.Models.Autor", b =>
+            modelBuilder.Entity("sistema_bibliotecario_api.Models.Autor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -35,7 +35,7 @@ namespace sistema_blibiotecario_api.Migrations
                     b.ToTable("Autores");
                 });
 
-            modelBuilder.Entity("sistema_blibiotecario_api.Models.Livro", b =>
+            modelBuilder.Entity("sistema_bibliotecario_api.Models.Livro", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,9 +60,9 @@ namespace sistema_blibiotecario_api.Migrations
                     b.ToTable("Livros");
                 });
 
-            modelBuilder.Entity("sistema_blibiotecario_api.Models.Livro", b =>
+            modelBuilder.Entity("sistema_bibliotecario_api.Models.Livro", b =>
                 {
-                    b.HasOne("sistema_blibiotecario_api.Models.Autor", "Autor")
+                    b.HasOne("sistema_bibliotecario_api.Models.Autor", "Autor")
                         .WithMany("Livros")
                         .HasForeignKey("Autor_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -71,7 +71,7 @@ namespace sistema_blibiotecario_api.Migrations
                     b.Navigation("Autor");
                 });
 
-            modelBuilder.Entity("sistema_blibiotecario_api.Models.Autor", b =>
+            modelBuilder.Entity("sistema_bibliotecario_api.Models.Autor", b =>
                 {
                     b.Navigation("Livros");
                 });

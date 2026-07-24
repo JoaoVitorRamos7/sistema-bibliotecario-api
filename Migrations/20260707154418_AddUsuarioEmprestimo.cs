@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace sistema_blibiotecario_api.Migrations
+namespace sistema_bibliotecario_api.Migrations
 {
     /// <inheritdoc />
     public partial class AddUsuarioEmprestimo : Migration

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using sistema_blibiotecario_api.Data;
-using sistema_blibiotecario_api.DTOs;
-using sistema_blibiotecario_api.Models;
+using sistema_bibliotecario_api.Data;
+using sistema_bibliotecario_api.DTOs;
+using sistema_bibliotecario_api.Models;
 
-namespace sistema_blibiotecario_api.Repositories
+namespace sistema_bibliotecario_api.Repositories
 {
     public class LivroRepository : ILivroRepository
     {

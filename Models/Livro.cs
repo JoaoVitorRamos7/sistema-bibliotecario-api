@@ -5,9 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace sistema_blibiotecario_api.Models
+namespace sistema_bibliotecario_api.Models
 {
-    
+
     public class Livro
     {
         [Key]
@@ -16,8 +16,8 @@ namespace sistema_blibiotecario_api.Models
         public string Genero { get; set; }
         public int AnoPublicado { get; set; }
         [ForeignKey("Autor")]
-        public int Autor_id {get; set;}
-        public Autor Autor {get; set;}
+        public int Autor_id { get; set; }
+        public Autor Autor { get; set; }
 
 
     }

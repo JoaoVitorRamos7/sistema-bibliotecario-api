@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using sistema_blibiotecario_api.DTOs;
-using sistema_blibiotecario_api.Models;
-using sistema_blibiotecario_api.Repositories;
+using sistema_bibliotecario_api.DTOs;
+using sistema_bibliotecario_api.Models;
+using sistema_bibliotecario_api.Repositories;
 
-namespace sistema_blibiotecario_api.Controllers
+namespace sistema_bibliotecario_api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -23,7 +23,7 @@ namespace sistema_blibiotecario_api.Controllers
         public IActionResult AddLivro(LivroCreateDto livro)
         {
             var Livro = livro;
-            if(Livro == null)
+            if (Livro == null)
             {
                 return BadRequest();
             }
@@ -53,7 +53,7 @@ namespace sistema_blibiotecario_api.Controllers
         public IActionResult Update(int id, LivroCreateDto livro)
         {
             var LivroExistente = livro;
-            _livroRepository.Update(id,LivroExistente);
+            _livroRepository.Update(id, LivroExistente);
             return Ok("Livro Atualizado");
         }
 

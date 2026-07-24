@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>Disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>sistema_blibiotecario_api</RootNamespace>
+    <RootNamespace>sistema_bibliotecario_api</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

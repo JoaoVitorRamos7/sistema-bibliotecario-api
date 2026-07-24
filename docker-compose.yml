@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_DATABASE: Sistema_Blibiotecario
+      MYSQL_DATABASE: Sistema_Bibliotecario
       MYSQL_USER: admin
       MYSQL_PASSWORD: 1234
     ports:

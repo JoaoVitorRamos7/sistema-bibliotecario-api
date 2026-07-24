@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using sistema_blibiotecario_api.Data;
+using sistema_bibliotecario_api.Data;
 
 #nullable disable
 
-namespace sistema_blibiotecario_api.Migrations
+namespace sistema_bibliotecario_api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20260610125252_Inicial")]
@@ -21,7 +21,7 @@ namespace sistema_blibiotecario_api.Migrations
                 .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("sistema_blibiotecario_api.Models.Livro", b =>
+            modelBuilder.Entity("sistema_bibliotecario_api.Models.Livro", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

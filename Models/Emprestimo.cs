@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace sistema_blibiotecario_api.Models
+namespace sistema_bibliotecario_api.Models
 {
     public class Emprestimo
     {

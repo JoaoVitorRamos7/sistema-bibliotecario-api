@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using sistema_blibiotecario_api.DTOs;
-using sistema_blibiotecario_api.Repositories;
+using sistema_bibliotecario_api.DTOs;
+using sistema_bibliotecario_api.Repositories;
 
-namespace sistema_blibiotecario_api.Controllers
+namespace sistema_bibliotecario_api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -39,7 +39,7 @@ namespace sistema_blibiotecario_api.Controllers
         [HttpGet("{id}")]
         public IActionResult GetUsuario(int id)
         {
-           var Usuario = _usuarioRepository.GetUsuario(id);
+            var Usuario = _usuarioRepository.GetUsuario(id);
             return Ok(Usuario);
         }
 
@@ -47,7 +47,7 @@ namespace sistema_blibiotecario_api.Controllers
         public IActionResult UpdateUsuario(int id, UsuarioCreateDto usuario)
         {
             var UsuarioNovo = usuario;
-            _usuarioRepository.Update(id,UsuarioNovo);
+            _usuarioRepository.Update(id, UsuarioNovo);
             return Ok("Usuario Atualizado.");
         }
         [HttpDelete("{id}")]

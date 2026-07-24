@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using sistema_blibiotecario_api.Data;
-using sistema_blibiotecario_api.Repositories;
+using sistema_bibliotecario_api.Data;
+using sistema_bibliotecario_api.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

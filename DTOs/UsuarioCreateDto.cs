@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace sistema_blibiotecario_api.DTOs
+namespace sistema_bibliotecario_api.DTOs
 {
     public class UsuarioCreateDto
     {
