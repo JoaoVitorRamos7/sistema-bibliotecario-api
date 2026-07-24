@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using sistema_blibiotecario_api.Data;
 using sistema_blibiotecario_api.Repositories;
 
@@ -11,12 +12,26 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var ConnectionString = builder.Configuration.GetConnectionString("AppConnectionString");
-builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(ConnectionString,ServerVersion.AutoDetect(ConnectionString)));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(ConnectionString, ServerVersion.AutoDetect(ConnectionString)));
 builder.Services.AddTransient<ILivroRepository, LivroRepository>();
 builder.Services.AddTransient<IAutorRepository, AutorRepository>();
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("HabilitarFront-endLocal",
+        policy =>
+        {
+            policy
+                .WithOrigins("http://localhost:2000")
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
+
 
 var app = builder.Build();
+app.UseCors("HabilitarFront-endLocal");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
