@@ -52,11 +52,17 @@ namespace sistema_bibliotecario_api.Repositories
 
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var Usuario = _appDbcontext.Usuarios.Find(id);
+            if (Usuario == null)
+            {
+                return false;
+            }
             _appDbcontext.Usuarios.Remove(Usuario);
             _appDbcontext.SaveChanges();
+
+            return true;
         }
 
         public Usuario GetUsuario(int id)

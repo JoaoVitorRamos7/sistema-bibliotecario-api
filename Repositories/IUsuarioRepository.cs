@@ -13,7 +13,7 @@ namespace sistema_bibliotecario_api.Repositories
         List<Usuario> GetUsuarios();
         Usuario GetUsuario(int id);
         bool Update(int id, UsuarioCreateDto usuario);
-        void Delete(int id);
+        bool Delete(int id);
 
     }
 }

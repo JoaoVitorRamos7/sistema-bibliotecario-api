@@ -43,11 +43,18 @@ namespace sistema_bibliotecario_api.Repositories
             return true;
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var Autor = _appDbcontext.Autores.Find(id);
+
+            if (Autor == null)
+            {
+                return false;
+            }
             _appDbcontext.Autores.Remove(Autor);
             _appDbcontext.SaveChanges();
+
+            return true;
         }
 
         public Autor GetAutor(int id)

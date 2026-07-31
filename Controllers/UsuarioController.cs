@@ -53,8 +53,12 @@ namespace sistema_bibliotecario_api.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _usuarioRepository.Delete(id);
-            return Ok("Usuario deletado.");
+            var Delete = _usuarioRepository.Delete(id);
+            if (!Delete)
+            {
+                return NotFound("Usuario não encontrado!");
+            }
+            return Ok("Usuario deletado com sucesso!");
         }
     }
 }

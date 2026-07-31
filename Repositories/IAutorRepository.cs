@@ -13,7 +13,7 @@ namespace sistema_bibliotecario_api.Repositories
         List<Autor> GetAutores();
         Autor GetAutor(int id);
         bool Update(int id, AutorCreateDto autor);
-        void Delete(int id);
+        bool Delete(int id);
 
 
     }
