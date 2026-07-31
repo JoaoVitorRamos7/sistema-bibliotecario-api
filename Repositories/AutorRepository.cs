@@ -34,7 +34,7 @@ namespace sistema_bibliotecario_api.Repositories
         public bool Update(int id, AutorCreateDto autor)
         {
             var AutorExistente = _appDbcontext.Autores.Find(id);
-            if (autor == null)
+            if (AutorExistente == null)
             {
                 return false;
             }
