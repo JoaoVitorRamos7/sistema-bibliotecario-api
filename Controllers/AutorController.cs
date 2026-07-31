@@ -47,8 +47,13 @@ namespace sistema_bibliotecario_api.Controllers
         public IActionResult Update(int id, AutorCreateDto autor)
         {
             var AutorNovo = autor;
-            _autorRepository.Update(id, AutorNovo);
-            return Ok();
+
+            var Update = _autorRepository.Update(id, AutorNovo);
+            if (!Update)
+            {
+                return BadRequest("Os dados fornecidos no corpo da requisição são inválidos.");
+            }
+            return Ok("Autor atualizado com sucesso!");
         }
 
         [HttpDelete("{id}")]

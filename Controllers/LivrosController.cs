@@ -53,8 +53,12 @@ namespace sistema_bibliotecario_api.Controllers
         public IActionResult Update(int id, LivroCreateDto livro)
         {
             var LivroExistente = livro;
-            _livroRepository.Update(id, LivroExistente);
-            return Ok("Livro Atualizado");
+            var Update = _livroRepository.Update(id, LivroExistente);
+            if (!Update)
+            {
+                return BadRequest("Os dados fornecidos no corpo da requisição são inválidos.");
+            }
+            return Ok("Livro Atualizado com sucesso!");
         }
 
         [HttpDelete("{id}")]
@@ -64,7 +68,7 @@ namespace sistema_bibliotecario_api.Controllers
             var Deletar = _livroRepository.Delete(id);
             if (!Deletar)
             {
-                return NotFound("Livro não encontrado");
+                return NotFound("Livro não encontrado!");
             }
             return Ok("Livro deletado com sucesso!");
         }
