@@ -18,8 +18,14 @@ namespace sistema_bibliotecario_api.Repositories
         {
             _appDbcontext = appDbContext;
         }
-        public void AddLivros(LivroCreateDto livro)
+        public bool AddLivros(LivroCreateDto livro)
         {
+            var Autor_id = _appDbcontext.Autores.Find(livro.Autor_id);
+            if (Autor_id == null)
+            {
+                return false;
+            }
+
             var Livro = new Livro
             {
                 Titulo = livro.Titulo,
@@ -29,6 +35,7 @@ namespace sistema_bibliotecario_api.Repositories
             };
             _appDbcontext.Livros.Add(Livro);
             _appDbcontext.SaveChanges();
+            return true;
         }
 
         public Livro GetLivro(int id)

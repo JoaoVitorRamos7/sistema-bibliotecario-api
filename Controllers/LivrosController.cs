@@ -23,11 +23,12 @@ namespace sistema_bibliotecario_api.Controllers
         public IActionResult AddLivro(LivroCreateDto livro)
         {
             var Livro = livro;
-            if (Livro == null)
+            var Post = _livroRepository.AddLivros(Livro);
+            if (!Post)
             {
-                return BadRequest();
+                return BadRequest("Os dados fornecidos no corpo da requisição são inválidos.");
             }
-            _livroRepository.AddLivros(Livro);
+
             return Ok("Livro adicionado com sucesso!");
         }
 
