@@ -61,7 +61,11 @@ namespace sistema_bibliotecario_api.Controllers
 
         public IActionResult Delete(int id)
         {
-            _livroRepository.Delete(id);
+            var Deletar = _livroRepository.Delete(id);
+            if (!Deletar)
+            {
+                return NotFound("Livro não encontrado");
+            }
             return Ok("Livro deletado com sucesso!");
         }
 
