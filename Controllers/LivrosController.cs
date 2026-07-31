@@ -45,6 +45,11 @@ namespace sistema_bibliotecario_api.Controllers
         public IActionResult GetLivro(int id)
         {
             var Livro = _livroRepository.GetLivro(id);
+            if (Livro == null)
+            {
+                return NotFound("Livro não encontrado.");
+            }
+            ;
             return Ok(Livro);
         }
 
