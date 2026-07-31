@@ -10,7 +10,7 @@ namespace sistema_bibliotecario_api.Repositories
 {
     public interface ILivroRepository
     {
-        void AddLivros(LivroCreateDto livro);
+        bool AddLivros(LivroCreateDto livro);
         List<Livro> GetLivros();
         Livro GetLivro(int id);
         bool Update(int id, [FromBody] LivroCreateDto livro);
