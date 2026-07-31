@@ -60,11 +60,19 @@ namespace sistema_bibliotecario_api.Repositories
 
 
         }
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             var Livro = _appDbcontext.Livros.Find(id);
+
+            if (Livro == null)
+            {
+                return false;
+            }
+
             _appDbcontext.Livros.Remove(Livro);
             _appDbcontext.SaveChanges();
+
+            return true;
         }
 
     }

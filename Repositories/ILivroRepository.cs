@@ -15,6 +15,6 @@ namespace sistema_bibliotecario_api.Repositories
         Livro GetLivro(int id);
         bool Update(int id, [FromBody] LivroCreateDto livro);
 
-        void Delete(int id);
+        bool Delete(int id);
     }
 }
