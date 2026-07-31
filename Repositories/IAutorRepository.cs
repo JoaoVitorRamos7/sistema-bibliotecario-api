@@ -10,7 +10,7 @@ namespace sistema_bibliotecario_api.Repositories
     public interface IAutorRepository
     {
         void AddAutor(AutorCreateDto autor);
-        List<Autor> GetAutores();
+        List<AutorResponseDto> GetAutores();
         Autor GetAutor(int id);
         bool Update(int id, AutorCreateDto autor);
         bool Delete(int id);
