@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using sistema_bibliotecario_api.Data;
 using sistema_bibliotecario_api.DTOs;
 using sistema_bibliotecario_api.Models;
@@ -25,10 +26,19 @@ namespace sistema_bibliotecario_api.Repositories
             _appDbcontext.SaveChanges();
         }
 
-        public List<Autor> GetAutores()
+        public List<AutorResponseDto> GetAutores()
         {
-            var Autores = _appDbcontext.Autores.ToList();
-            return Autores;
+            return _appDbcontext.Autores
+                .Include(a => a.Livros)
+                .Select(a => new AutorResponseDto
+                {
+                    id = a.Id,
+                    nome = a.Nome,
+                    Livros = a.Livros
+                    .Select(l => l.Titulo)
+                    .ToList()
+
+                }).ToList();
         }
 
         public bool Update(int id, AutorCreateDto autor)
