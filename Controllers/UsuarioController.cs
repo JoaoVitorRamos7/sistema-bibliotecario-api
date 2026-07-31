@@ -40,6 +40,10 @@ namespace sistema_bibliotecario_api.Controllers
         public IActionResult GetUsuario(int id)
         {
             var Usuario = _usuarioRepository.GetUsuario(id);
+            if (Usuario == null)
+            {
+                return NotFound("Usuario não encontrado");
+            }
             return Ok(Usuario);
         }
 

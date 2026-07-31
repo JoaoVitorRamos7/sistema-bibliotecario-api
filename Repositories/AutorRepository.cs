@@ -70,6 +70,10 @@ namespace sistema_bibliotecario_api.Repositories
         public Autor GetAutor(int id)
         {
             var Usuario = _appDbcontext.Autores.Find(id);
+            if (Usuario == null)
+            {
+
+            }
             return Usuario;
         }
     }

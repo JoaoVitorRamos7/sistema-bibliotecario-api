@@ -38,8 +38,12 @@ namespace sistema_bibliotecario_api.Controllers
         [HttpGet("{id}")]
         public IActionResult GetAutor(int id)
         {
-            var Usuario = _autorRepository.GetAutor(id);
-            return Ok(Usuario);
+            var Autor = _autorRepository.GetAutor(id);
+            if (Autor == null)
+            {
+                return NotFound("Autor não encontrado.");
+            }
+            return Ok(Autor);
         }
 
         [HttpPut("{id}")]
