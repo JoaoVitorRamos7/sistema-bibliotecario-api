@@ -18,6 +18,10 @@ namespace sistema_bibliotecario_api.Controllers
             _autorRepository = autorRepository;
         }
 
+        /// <summary>
+        /// Adiciona um novo autor ao sistema.
+        /// </summary> 
+
         [HttpPost]
 
         public IActionResult AddAutor(AutorCreateDto autor)
@@ -36,6 +40,10 @@ namespace sistema_bibliotecario_api.Controllers
 
         }
 
+        /// <summary>
+        /// Retorna uma lista de todos os autores cadastrados no sistema.
+        /// </summary>   
+
         [HttpGet]
 
         public IActionResult GetAutores()
@@ -43,6 +51,10 @@ namespace sistema_bibliotecario_api.Controllers
             var Autores = _autorRepository.GetAutores();
             return Ok(Autores);
         }
+
+        /// <summary>
+        /// Retorna um autor específico com base no ID fornecido.
+        /// </summary>
 
         [HttpGet("{id}")]
         public IActionResult GetAutor(int id)
@@ -54,6 +66,10 @@ namespace sistema_bibliotecario_api.Controllers
             }
             return Ok(Autor);
         }
+
+        /// <summary>
+        /// Atualiza os dados de um autor existente com base no ID fornecido.
+        /// </summary>
 
         [HttpPut("{id}")]
 
@@ -68,6 +84,10 @@ namespace sistema_bibliotecario_api.Controllers
             }
             return Ok("Autor atualizado com sucesso!");
         }
+
+        /// <summary>
+        /// Remove um autor do sistema com base no ID fornecido.
+        /// </summary>
 
         [HttpDelete("{id}")]
 

@@ -19,6 +19,11 @@ namespace sistema_bibliotecario_api.Controllers
             _livroRepository = livroRepository;
         }
 
+
+        /// <summary>
+        /// Adiciona um novo livro ao sistema.
+        /// </summary>
+
         [HttpPost]
         public IActionResult AddLivro(LivroCreateDto livro)
         {
@@ -32,6 +37,9 @@ namespace sistema_bibliotecario_api.Controllers
             return Ok("Livro adicionado com sucesso!");
         }
 
+        /// <summary>
+        /// Retorna uma lista de todos os livros cadastrados no sistema.
+        /// </summary>
 
         [HttpGet]
 
@@ -40,6 +48,10 @@ namespace sistema_bibliotecario_api.Controllers
             var Livros = _livroRepository.GetLivros();
             return Ok(Livros);
         }
+
+        /// <summary>
+        /// Retorna um livro específico com base no ID fornecido.
+        /// </summary>
 
         [HttpGet("{id}")]
 
@@ -54,6 +66,10 @@ namespace sistema_bibliotecario_api.Controllers
             return Ok(Livro);
         }
 
+        /// <summary>
+        /// Atualiza os dados de um livro existente com base no ID fornecido.
+        /// </summary>
+
         [HttpPut("{id}")]
 
         public IActionResult Update(int id, LivroCreateDto livro)
@@ -66,6 +82,10 @@ namespace sistema_bibliotecario_api.Controllers
             }
             return Ok("Livro Atualizado com sucesso!");
         }
+
+        /// <summary>
+        /// Remove um livro do sistema com base no ID fornecido.
+        /// </summary>
 
         [HttpDelete("{id}")]
 

@@ -5,6 +5,8 @@
     <Nullable>Disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>sistema_bibliotecario_api</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
