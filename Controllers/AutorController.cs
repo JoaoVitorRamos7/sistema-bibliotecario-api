@@ -23,8 +23,17 @@ namespace sistema_bibliotecario_api.Controllers
         public IActionResult AddAutor(AutorCreateDto autor)
         {
             var Autor = autor;
-            _autorRepository.AddAutor(Autor);
-            return Ok("Autor adicionado com sucesso!");
+            try
+            {
+                _autorRepository.AddAutor(Autor);
+                return Ok("Autor adicionado com sucesso!");
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
         }
 
         [HttpGet]
