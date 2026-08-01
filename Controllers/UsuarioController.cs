@@ -17,6 +17,11 @@ namespace sistema_bibliotecario_api.Controllers
         {
             _usuarioRepository = usuarioRepository;
         }
+
+        /// <summary>
+        /// Adiciona um novo usuário ao sistema.
+        /// </summary>
+
         [HttpPost]
         public IActionResult AddUsuario(UsuarioCreateDto usuario)
         {
@@ -29,12 +34,20 @@ namespace sistema_bibliotecario_api.Controllers
             return Ok("Usuario criado com sucesso!");
         }
 
+        /// <summary>
+        /// Retorna uma lista de todos os usuários cadastrados no sistema.
+        /// </summary>
+
         [HttpGet]
         public IActionResult GetUsuarios()
         {
             var Usuarios = _usuarioRepository.GetUsuarios();
             return Ok(Usuarios);
         }
+
+        /// <summary>
+        /// Retorna um usuário específico com base no ID fornecido.
+        /// </summary>
 
         [HttpGet("{id}")]
         public IActionResult GetUsuario(int id)
@@ -47,6 +60,10 @@ namespace sistema_bibliotecario_api.Controllers
             return Ok(Usuario);
         }
 
+        /// <summary>
+        /// Atualiza os dados de um usuário existente com base no ID fornecido.
+        /// </summary>
+
         [HttpPut("{id}")]
         public IActionResult UpdateUsuario(int id, UsuarioCreateDto usuario)
         {
@@ -58,6 +75,11 @@ namespace sistema_bibliotecario_api.Controllers
             }
             return Ok("Usuario atualizado com sucesso!");
         }
+
+        /// <summary>
+        /// Remove um usuário do sistema com base no ID fornecido.
+        /// </summary>
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
