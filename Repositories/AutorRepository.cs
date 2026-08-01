@@ -18,6 +18,12 @@ namespace sistema_bibliotecario_api.Repositories
         }
         public void AddAutor(AutorCreateDto autor)
         {
+            var AutorExiste = _appDbcontext.Autores.Any(a => a.Nome == autor.Nome);
+            if (AutorExiste)
+            {
+                throw new InvalidOperationException("Já existe um autor com esse nome.");
+            }
+
             var Autor = new Autor
             {
                 Nome = autor.Nome
