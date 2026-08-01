@@ -145,6 +145,11 @@ Restaure os pacotes
 ```bash
 dotnet restore
 ```
+Instale a ferramenta do Entity Framework Core CLI (caso ainda não tenha):
+
+```bash
+dotnet tool install --global dotnet-ef
+```
 
 Configure a Connection String no arquivo:
 
